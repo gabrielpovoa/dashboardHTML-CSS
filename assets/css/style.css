@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    list-style: none;
+    text-transform: capitalize;
+    transition: all .3s ease-out;
+}
+
+:root {
+    --background-light: #1d204b;
+    --background: #0f101d;
+    --color-blue: #5746ea;
+    --color-orange: #ff8b64;
+    --light-blue: #56c2e6;
+    --color-red: #ff5e7d;
+    --color-green: #4bcf83;
+    --color-purple: #7434d1;
+    --color-yellow: #f1c75b;
+}
+
+::selection {
+    color: #ccc;
+    background-color: #222;
+}
+
+
+html {
+    font-size: 62.5%;
+    scroll-padding-top: 8rem;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #ABCDEF;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.container {
+    display: flex;
+    max-width: 60%;
+    width: 100%;
+    margin: 3rem;
+}
+
+.container .sidebar {
+    background-color: var(--background-light);
+    border-radius: .8rem;
+}
+
+.container .tracks {
+   flex-grow: 1;
+   margin-left: 1.8rem;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 2rem;
+}
+
+.container .sidebar .profile {
+    padding: 1.5rem;
+    border-radius: .8rem;
+    background-color: var(--color-blue);
+}
+.container .sidebar .profile img {
+    width: 60px;
+    height: 60px;
+    border-radius:50%;
+    object-fit: cover;
+    border: .2rem solid #FFF;
+    margin-bottom: 3.2rem;
+}
+
+.container .sidebar .profile .stats-text {
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    color: #eee;
+}
+
+.container .sidebar .profile .name {
+    font-size: 2rem;
+    color: #FFF;
+    font-weight: 300;
+}
+
+.container .sidebar .times {
+    padding: 1rem 1.5rem;
+    color: rgba(255,255,255,0.5);
+}
+
+.container .sidebar .times .active {
+    color: rgba(255,255,255,0.9);
+    padding: .8rem 0;
+}
+
+.container .tracks .track-item {
+    background-color: var(--background-light);
+    border-radius: .8rem;
+    color: #FFF;
+    padding: 1.5rem;
+    margin-top: 15px;
+    position: relative;
+}
+
+.container .tracks .track-item .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .tracks .track-item .nav span {
+    font-size: 1.5rem;
+    color: #eee;
+    font-weight: 300;
+}
+
+.container .tracks .track-item .nav span:nth-child(2) {
+    cursor: pointer;
+    margin-top: -1rem;
+    letter-spacing: 2px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.container .tracks .track-item .hour {
+    font-size: 2rem;
+    margin-top: .8rem;
+}
+
+.container .tracks .track-item p {
+    color: rgba(255,255,255,0.5);
+    font-size: 1.2rem;
+    padding: .8rem 0;
+}
+
+.container .tracks .track-item::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: -15px; left: 0;
+    z-index: -1;
+    border-radius: .8rem;
+    transition: top .2s ease-in;
+
+}
+
+.container .tracks .track-item:nth-child(1)::after {
+    background-color: var(--color-orange);
+}
+
+.container .tracks .track-item:nth-child(2)::after {
+    background-color: var(--light-blue);
+}
+
+.container .tracks .track-item:nth-child(3)::after {
+    background-color: var(--color-red);
+}
+
+.container .tracks .track-item:nth-child(4)::after {
+    background-color: var(--color-green);
+}
+
+.container .tracks .track-item:nth-child(5)::after {
+    background-color: var(--color-purple);
+}
+
+.container .tracks .track-item:nth-child(6)::after {
+    background-color: var(--color-yellow);
+}
+
+.container .tracks .track-item:hover::after {
+    top: -30px;
+}
+
+@media screen and (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-flow: column;
+    }
+    .container .tracks {
+        margin-left:0;
+    }
+    .container .sidebar {
+        margin-bottom: 1.8rem;
+    }
+    .container .tracks .track-item  {
+        margin-top: 3rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+    .container {
+        width: 100%;
+        max-width: 100%;
+    }
+}
